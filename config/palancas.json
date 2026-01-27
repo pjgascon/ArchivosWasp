@@ -1,0 +1,244 @@
+{
+    "familias": {
+        "movil": {
+            "hoja": "Inf_Act_ComPlan_Prima",
+            "inicio": 2,
+            "columnas": {
+                "CIF_DISTRIBUIDOR": {
+                    "pos": "A",
+                    "type": "string"
+                },
+                "NOMBRE_DISTRIBUIDOR": {
+                    "pos": "B",
+                    "type": "string",
+                    "join_right_if_split": true
+                },
+                "SFID": {
+                    "pos": "C",
+                    "type": "string"
+                },
+                "MSISDN": {
+                    "pos": "D",
+                    "type": "string"
+                },
+                "NIF_CLIENTE": {
+                    "pos": "E",
+                    "type": "string"
+                },
+                "FECHA_CICLO": {
+                    "pos": "F",
+                    "type": "date"
+                },
+                "FECHA_ACTIVACION_PROD": {
+                    "pos": "G",
+                    "type": "date"
+                },
+                "FECHA_ACTIVACION_SERVICIO": {
+                    "pos": "H",
+                    "type": "date"
+                },
+                "FECHA_EFECTIVIDAD": {
+                    "pos": "I",
+                    "type": "date"
+                },
+                "TIPO_CLIENTE": {
+                    "pos": "J",
+                    "type": "string"
+                },
+                "SUB_TIPO_CLIENTE": {
+                    "pos": "K",
+                    "type": "string"
+                },
+                "PLAN": {
+                    "pos": "L",
+                    "type": "string"
+                },
+                "TIPO_EVENTO": {
+                    "pos": "M",
+                    "type": "string"
+                },
+                "PORTABILIDAD": {
+                    "pos": "N",
+                    "type": "bool"
+                },
+                "TIPOLOGIA_SFID": {
+                    "pos": "O",
+                    "type": "string"
+                },
+                "SVT_VALUE": {
+                    "pos": "P",
+                    "type": "string"
+                },
+                "PROMOCION": {
+                    "pos": "Q",
+                    "type": "string"
+                },
+                "FECHA_CARGA1": {
+                    "pos": "R",
+                    "type": "date"
+                },
+                "ORDER_ID": {
+                    "pos": "S",
+                    "type": "bigint"
+                },
+                "CARTERA_ASIGNADA": {
+                    "headers": [
+                        "CARTERA_ASIGNADA"
+                    ],
+                    "pos": "T",
+                    "type": "bool"
+                },
+                "COD_PROVEEDOR": {
+                    "pos": "U",
+                    "type": "string"
+                },
+                "CIF_NUEVO": {
+                    "pos": "V",
+                    "type": "string"
+                },
+                "SUM_VALUE": {
+                    "pos": "W",
+                    "type": "decimal"
+                },
+                "NAME1": {
+                    "pos": "X",
+                    "type": "string"
+                },
+                "VALUE_IND": {
+                    "pos": "Y",
+                    "type": "bool"
+                },
+                "CICLO": {
+                    "pos": "Z",
+                    "type": "string"
+                },
+                "KPI": {
+                    "pos": "AA",
+                    "type": "string"
+                },
+                "FAMILIA": {
+                    "pos": "AB",
+                    "type": "string"
+                },
+                "CATEGORIA": {
+                    "pos": "AC",
+                    "type": "string"
+                },
+                "DESCRIPCION": {
+                    "pos": "AD",
+                    "type": "string"
+                },
+                "EQUIVALENCIA": {
+                    "pos": "AE",
+                    "type": "decimal"
+                },
+                "CATEGORIA_CONVERGENCIA": {
+                    "pos": "AF",
+                    "type": "string"
+                },
+                "RED_DATOS": {
+                    "pos": "AG",
+                    "type": "string"
+                },
+                "CUENTA_INCENTIVO": {
+                    "pos": "AH",
+                    "type": "string"
+                },
+                "CLIENTE_CAPTADO": {
+                    "pos": "AI",
+                    "type": "bool"
+                },
+                "ZONA_SFID": {
+                    "pos": "AJ",
+                    "type": "string"
+                },
+                "CAPTA_FIDE": {
+                    "pos": "AK",
+                    "type": "string"
+                },
+                "CONTEO": {
+                    "pos": "AL",
+                    "type": "int"
+                },
+                "CIF_TERRI": {
+                    "pos": "AM",
+                    "type": "string"
+                },
+                "ALTA_REFERENCIADA": {
+                    "pos": "AN",
+                    "type": "int"
+                }
+            }
+        },
+        "sva": {
+            "hoja": "Inf_Activ_ComPlan_SVA",
+            "inicio": 6,
+            "columnas": {
+                "CIF_DISTRIBUIDOR": {
+                    "pos": "A",
+                    "type": "string"
+                },
+                "NOMBRE_DISTRIBUIDOR": {
+                    "pos": "B",
+                    "type": "string"
+                },
+                "SFID": {
+                    "pos": "C",
+                    "type": "string"
+                },
+                "MSISDN": {
+                    "pos": "D",
+                    "type": "string"
+                },
+                "NIF_CLIENTE": {
+                    "pos": "E",
+                    "type": "string"
+                },
+                "FECHA_CICLO": {
+                    "pos": "F",
+                    "type": "date"
+                },
+                "FECHA_ACTIVACION_SERVICIO": {
+                    "pos": "H",
+                    "type": "date"
+                },
+                "PLAN": {
+                    "pos": "L",
+                    "type": "string"
+                },
+                "TIPO_EVENTO": {
+                    "pos": "M",
+                    "type": "string"
+                },
+                "SUM_VALUE": {
+                    "pos": "W",
+                    "type": "decimal"
+                },
+                "VALUE_IND": {
+                    "pos": "Y",
+                    "type": "decimal"
+                },
+                "KPI": {
+                    "pos": "AA",
+                    "type": "string"
+                },
+                "FAMILIA": {
+                    "pos": "AB",
+                    "type": "string"
+                },
+                "DESCRIPCION": {
+                    "pos": "AD",
+                    "type": "string"
+                },
+                "EQUIVALENCIA": {
+                    "pos": "AE",
+                    "type": "decimal"
+                },
+                "VALOR_ESTRATEGICO": {
+                    "pos": "AP",
+                    "type": "decimal"
+                }
+            },
+            "ipvpn": {}
+        }
+    }
