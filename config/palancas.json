@@ -172,7 +172,7 @@
         },
         "sva": {
             "hoja": "Inf_Activ_ComPlan_SVA",
-            "inicio": 6,
+            "inicio": 5,
             "columnas": {
                 "CIF_DISTRIBUIDOR": {
                     "pos": "A",
@@ -238,7 +238,49 @@
                     "pos": "AP",
                     "type": "decimal"
                 }
-            },
-            "ipvpn": {}
+            }
+        },
+        "ipvpn": {
+            "hoja": "Ipvpn",
+            "inicio": 5,
+            "columnas": {
+                "CIF_DISTRIBUIDOR": {
+                    "pos": "A",
+                    "type": "string"
+                },
+                "Q": {
+                    "pos": "B",
+                    "type": "string"
+                },
+                "MES": {
+                    "pos": "C",
+                    "type": "string"
+                },
+                "ESTADO OFERTA": {
+                    "pos": "D",
+                    "type": "string"
+                },
+                "CIF CLIENTE": {
+                    "pos": "L",
+                    "type": "string"
+                },
+                "NOMBRE CLIENTE": {
+                    "pos": "M",
+                    "type": "string"
+                },
+                "SNAV TOTAL": {
+                    "pos": "T",
+                    "type": "decimal"
+                },
+                "IMPORTE ESTRATEGICO": {
+                    "pos": "AF",
+                    "type": "decimal"
+                },
+                "FAMILIA": {
+                    "pos": "AH",
+                    "type": "string"
+                }
+            }
         }
     }
+}

@@ -4,19 +4,20 @@ require_once 'vendor/PHPExcel/IOFactory.php';
 require_once 'vendor/PHPExcel/Cell.php';
 require_once 'vendor/PHPExcel/Worksheet.php';
 
-$objReader = PHPExcel_IOFactory::createReader('Excel2007');
 $archivoConfiguracion = json_decode(file_get_contents('config/palancas.json'), true);
+$objReader = PHPExcel_IOFactory::createReader('Excel2007');
 $objPHPExcel = $objReader->load('ENERTEL SURESTE, S.L._Captacion.xlsx');
+$identificador = date('Ymd_His');
 
 // Obtengo las familias del archivo de palancas (móvil, ipvpn, sva...)
 $arrFamilias = array_keys($archivoConfiguracion['familias']);
 
 foreach ($arrFamilias as $familia) {
     // Aquí iría el procesamiento específico por familia
-    procesarFamilia($familia, $archivoConfiguracion, $objPHPExcel);
+    procesarFamilia($familia, $archivoConfiguracion, $objPHPExcel, $identificador);
 }
 
-function procesarFamilia($familia, $configuracion, $objPHPExcel)
+function procesarFamilia($familia, $configuracion, $objPHPExcel, $identificador)
 {
     // Lógica para procesar cada familia
     $filaInicio = $configuracion['familias'][$familia]['inicio'];
@@ -58,7 +59,7 @@ function procesarFamilia($familia, $configuracion, $objPHPExcel)
                 $datos[$columna] = $valor;
             }
             if (strlen($datos['CIF_DISTRIBUIDOR']) > 0) {
-                guardarDatos($familia, $datos);
+                guardarDatos($familia, $datos, $identificador);
             } else {
                 break;
             }
@@ -66,15 +67,16 @@ function procesarFamilia($familia, $configuracion, $objPHPExcel)
     }
 }
 
-function guardarDatos($familia, $datos)
+function guardarDatos($familia, $datos, $identificador)
 {
     if ($familia == 'movil') {
-        $sql = "call callidus_movil_guardar('{$datos['CIF_DISTRIBUIDOR']}',
+        $sql = "call palancas_movil_guardar_v2('{$identificador}',
+                                            '{$datos['CIF_DISTRIBUIDOR']}',
                                             '{$datos['NOMBRE_DISTRIBUIDOR']}',
                                             '{$datos['SFID']}',
                                             '{$datos['MSISDN']}',
                                             '{$datos['NIF_CLIENTE']}',
-                                            '{$datos['FECHA_CICLO']}',
+                                            '{$datos['FECHA_CICLO']}',                    
                                             '{$datos['FECHA_ACTIVACION_PROD']}',
                                             '{$datos['FECHA_ACTIVACION_SERVICIO']}',
                                             '{$datos['FECHA_EFECTIVIDAD']}',
@@ -113,7 +115,8 @@ function guardarDatos($familia, $datos)
         $mysqli->query($sql);
     } elseif ($familia == 'sva') {
         // Guardar datos en la base de datos para la familia sva
-        $sql = "call callidus_sva_guardar('{$datos['CIF_DISTRIBUIDOR']}',
+        $sql = "call palancas_sva_guardar_v2('{$identificador}',
+                                          '{$datos['CIF_DISTRIBUIDOR']}',
                                           '{$datos['NOMBRE_DISTRIBUIDOR']}',
                                           '{$datos['SFID']}',
                                           '{$datos['MSISDN']}',
@@ -129,6 +132,20 @@ function guardarDatos($familia, $datos)
                                           '{$datos['DESCRIPCION']}',
                                           '{$datos['EQUIVALENCIA']}',
                                           '{$datos['VALOR_ESTRATEGICO']}');";
+        $mysqli = conexion();
+        $mysqli->query($sql);
+    } elseif ($familia == 'ipvpn') {
+        // Guardar datos en la base de datos para la familia ipvpn
+        $sql = "call palancas_ipvpn_guardar_v2('{$identificador}',
+                                           '{$datos['CIF_DISTRIBUIDOR']}',
+                                           '{$datos['Q']}',
+                                           '{$datos['MES']}',
+                                           '{$datos['ESTADO OFERTA']}',
+                                           '{$datos['CIF CLIENTE']}',
+                                           '{$datos['NOMBRE CLIENTE']}',
+                                           '{$datos['SNAV TOTAL']}',
+                                           '{$datos['IMPORTE ESTRATEGICO']}',
+                                           '{$datos['FAMILIA']}');";
         $mysqli = conexion();
         $mysqli->query($sql);
     }
